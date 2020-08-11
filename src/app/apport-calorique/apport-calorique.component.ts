@@ -1,6 +1,6 @@
 import {ActiviteEnum} from '../shared/enums/activite.enum';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormGroup, FormControl, ValidationErrors, FormBuilder } from '@angular/forms';
+import { AbstractControl, FormGroup, FormControl, ValidationErrors, FormBuilder, Validators } from '@angular/forms';
 import { CalculApportCaloriqueService } from '../shared/services/calcul-apport-calorique.service';
 @Component({
   selector: 'app-apport-calorique',
@@ -18,7 +18,7 @@ export class ApportCaloriqueComponent implements OnInit {
   ngOnInit(): void {
     this.apportKcalForm = this.builder.group(
       {
-        activite: '',
+        activite: new FormControl( '', [Validators.required]),
         sexe: '',
         age: '',
         poids: '',

@@ -1,0 +1,11 @@
+.btn{
+
+    margin-left: 70%;
+    background-color: #7fba00;
+    border: none;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+}
+.btn:hover{
+background-color: #7fba07;
+}

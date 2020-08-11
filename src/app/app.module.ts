@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 
 
 import { AppComponent } from './app.component';
@@ -11,6 +13,8 @@ import { ApportCaloriqueContainerComponent } from './apport-calorique-container/
 import { HomeComponent } from './home/home.component';
 import { ApportCaloriqueResultComponent } from './apport-calorique-result/apport-calorique-result.component';
 import { NumberToSexePipe } from './number-to-sexe.pipe';
+import { StatSuiviCaloriqueComponent } from './stat-suivi-calorique/stat-suivi-calorique.component';
+import { ToasterComponent } from './toaster/toaster.component';
 
 
 @NgModule({
@@ -21,13 +25,17 @@ import { NumberToSexePipe } from './number-to-sexe.pipe';
     ApportCaloriqueContainerComponent,
     HomeComponent,
     ApportCaloriqueResultComponent,
-    NumberToSexePipe
+    NumberToSexePipe,
+    StatSuiviCaloriqueComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

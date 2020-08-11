@@ -1,0 +1,12 @@
+<p><ngb-progressbar type="info" [value]="50" [striped]="true" [animated]="true"><i>50%</i></ngb-progressbar></p>
+
+<div style="display: block;">
+    <canvas baseChart 
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>

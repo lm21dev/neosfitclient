@@ -1,9 +1,10 @@
 import {ActiviteEnum} from '../shared/enums/activite.enum';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormControl, ValidationErrors, FormBuilder, Validators } from '@angular/forms';
-import { CalculApportCaloriqueService } from '../shared/services/calcul-apport-calorique.service';
+
 import { SyntheseConsoService } from '../shared/services/synthese-conso.service';
 import { TypeSexe } from '../shared/enums/type-sexe.enum';
+import { Conso } from '../shared/Interfaces/conso';
 
 @Component({
   selector: 'app-apport-calorique',
@@ -16,12 +17,12 @@ export class ApportCaloriqueComponent implements OnInit {
   keys = Object.keys;
   values = Object.values;
   act = ActiviteEnum;
+
   
   sexes = TypeSexe;
 
   constructor(
-    private builder: FormBuilder, 
-    private calcul: CalculApportCaloriqueService, 
+    private builder: FormBuilder,
     private syntheseConso: SyntheseConsoService) { }
 
   ngOnInit(): void {
@@ -38,13 +39,13 @@ export class ApportCaloriqueComponent implements OnInit {
   onSubmit(): void {
 
     this.syntheseConso.calculCalorique(this.apportKcalForm.value)
-    .subscribe(
-      next => console.log(next),
-      err => console.error(err));
+    .subscribe( c => {this.syntheseConso.conso.next(c); },
+                err => console.error(err));
+    this.syntheseConso.affichageResult.next(true);
   }
   refresh(): void {
     this.apportKcalForm.reset();
-    this.calcul.affichageResult.next(false);
-    this.calcul.mangeur.next(null);
+    this.syntheseConso.affichageResult.next(false);
+    this.syntheseConso.conso=null;
   }
 }

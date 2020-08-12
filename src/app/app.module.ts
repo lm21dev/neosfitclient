@@ -15,6 +15,8 @@ import { ApportCaloriqueResultComponent } from './apport-calorique-result/apport
 import { NumberToSexePipe } from './number-to-sexe.pipe';
 import { StatSuiviCaloriqueComponent } from './stat-suivi-calorique/stat-suivi-calorique.component';
 import { ToasterComponent } from './toaster/toaster.component';
+import { SyntheseConsoService } from './shared/services/synthese-conso.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,9 +37,10 @@ import { ToasterComponent } from './toaster/toaster.component';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    ChartsModule
+    ChartsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SyntheseConsoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

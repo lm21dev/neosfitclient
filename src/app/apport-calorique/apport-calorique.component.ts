@@ -17,10 +17,30 @@ export class ApportCaloriqueComponent implements OnInit {
   keys = Object.keys;
   values = Object.values;
   act = ActiviteEnum;
-
-  
   sexes = TypeSexe;
 
+  get activite(): AbstractControl{return this.apportKcalForm.get('activite'); }
+  get sexe(): AbstractControl{return this.apportKcalForm.get('sexe'); }
+  get poids(): AbstractControl{return this.apportKcalForm.get('poids'); }
+  get age(): AbstractControl{return this.apportKcalForm.get('age'); }
+  get taille(): AbstractControl{return this.apportKcalForm.get('taille'); }
+
+  getErrors(a: AbstractControl): string{
+    let res = '';
+    if (a.errors && !a.pristine){
+      if (a.errors.required){
+        res += 'Ce champs est requis';
+      }
+      if (a.errors.min){
+        res += 'Vous devez entrer une valeur supérieure à ' + a.errors.min.min;
+      }
+      if (a.errors.max){
+        res += 'Vous devez entrer une valeur inférieure à ' + a.errors.max.max;
+      }
+    }
+
+    return res;
+  }
   constructor(
     private builder: FormBuilder,
     private syntheseConso: SyntheseConsoService) { }
@@ -28,11 +48,11 @@ export class ApportCaloriqueComponent implements OnInit {
   ngOnInit(): void {
     this.apportKcalForm = this.builder.group(
       {
-        activite: new FormControl( '', [Validators.required]),
-        sexe: '',
-        age: '',
-        poids: '',
-        taille: ''
+        activite: ['', [Validators.required]],
+        sexe: ['', [Validators.required]],
+        age: ['', [Validators.required, Validators.min(18), Validators.max(99)]],
+        poids: ['', [Validators.required, Validators.min(25), Validators.max(150)]],
+        taille: ['', [Validators.required, Validators.min(130), Validators.max(250)]]
       }
     );
   }
@@ -46,6 +66,6 @@ export class ApportCaloriqueComponent implements OnInit {
   refresh(): void {
     this.apportKcalForm.reset();
     this.syntheseConso.affichageResult.next(false);
-    this.syntheseConso.conso=null;
+    this.syntheseConso.conso.next(null);
   }
 }

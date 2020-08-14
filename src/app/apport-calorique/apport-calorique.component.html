@@ -5,27 +5,32 @@
         <select class="form-control" formControlName="activite">
             <option *ngFor="let activite of values(act)" [ngValue]="activite"> {{activite}}</option>
         </select>
+        <p *ngIf="activite.invalid"> {{getErrors(activite)}}</p>
     </div>
     <div class="form-group">
         <label>Sexe</label>
         <select class="form-control" formControlName="sexe">
             <option *ngFor="let sexe of values(sexes)" [ngValue]="sexe">{{sexe}}</option>
         </select>
+        <p *ngIf="sexe.invalid"> {{getErrors(sexe)}}</p>
     </div>
     <div class="form-group">
         <label>Age</label>
         <input class="form-control" type="number" formControlName="age"/>
+        <p *ngIf="age.invalid"> {{getErrors(age)}}</p>
     </div>
     <div class="form-group">
         <label>Poids</label>
         <input class="form-control" type="number" formControlName="poids"/>
+        <p *ngIf="poids.invalid"> {{getErrors(poids)}}</p>
     </div>
     <div class="form-group">
         <label>Taille</label>
         <input class="form-control" type="number" formControlName="taille"/>
+        <p *ngIf="taille.invalid"> {{getErrors(taille)}}</p>
     </div>
     <div class="form-group">
-        <button class="btn btn-primary col-6" type="submit">Mon apport</button>
+        <button class="btn btn-primary col-6" type="submit" [disabled]='apportKcalForm.invalid'>Mon apport</button>
         <button class="btn  col-6" type="button" (click)="refresh()">Refresh</button>
     </div>
 </form>

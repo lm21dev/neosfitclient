@@ -16,7 +16,13 @@ import { NumberToSexePipe } from './number-to-sexe.pipe';
 import { StatSuiviCaloriqueComponent } from './stat-suivi-calorique/stat-suivi-calorique.component';
 import { ToasterComponent } from './toaster/toaster.component';
 import { SyntheseConsoService } from './shared/services/synthese-conso.service';
+
 import { HttpClientModule } from '@angular/common/http';
+import { RepasComponent } from './repas/repas.component';
+import { AlimentSelectorComponent } from './aliment-selector/aliment-selector.component';
+import { AlimentComponent } from './aliment/aliment.component';
+import { AlimentRechercheComponent } from './aliment-recherche/aliment-recherche.component';
+import { AlimentElemDirective } from './aliment-selector/aliment-elem.directive';
 
 
 @NgModule({
@@ -29,7 +35,12 @@ import { HttpClientModule } from '@angular/common/http';
     ApportCaloriqueResultComponent,
     NumberToSexePipe,
     StatSuiviCaloriqueComponent,
-    ToasterComponent
+    ToasterComponent,
+    RepasComponent,
+    AlimentSelectorComponent,
+    AlimentComponent,
+    AlimentRechercheComponent,
+    AlimentElemDirective
   ],
   imports: [
     BrowserModule,

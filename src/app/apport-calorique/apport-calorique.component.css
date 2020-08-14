@@ -1,0 +1,7 @@
+.ng-pristine 
+{
+    border:1px solid #ced4da !important;
+}
+.ng-invalid{
+    border:1px solid red;
+}

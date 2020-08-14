@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <tr>
+            <th class="col-12" scope="col">Aliment</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody #maListe>
+        <tr *ngFor='let item of alimentsAffiche.value; let i =index' [aliment]='item' [selectedAliments]='selectedAliments' (onSelectedChange) = 'onSelectedChange($event)' appAlimentElem>
+            <td>
+                <label>{{item.libelle}}</label>    
+            </td>            
+        </tr>   
+    </tbody>    
+</table>
+<button #btnAdd class="btn btn-primary btn-block" [disabled]='!disabled' (click)=onAddClick()>Ajouter</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculApportCaloriqueService, mangeur} from '../shared/services/calcul-apport-calorique.service';
+import { SyntheseConsoService} from '../shared/services/synthese-conso.service';
+import { Conso } from '../shared/Interfaces/conso';
 
 @Component({
   selector: 'app-apport-calorique-result',
@@ -7,12 +8,12 @@ import { CalculApportCaloriqueService, mangeur} from '../shared/services/calcul-
   styleUrls: ['./apport-calorique-result.component.css']
 })
 export class ApportCaloriqueResultComponent implements OnInit {
-  result: mangeur;
+  conso: Conso;
 
-  constructor(private calcul: CalculApportCaloriqueService) { }
+  constructor(private calcul: SyntheseConsoService) { }
 
   ngOnInit(): void {
-    this.calcul.mangeur.subscribe(m => this.result = m);
+    this.calcul.conso.subscribe(u => this.conso = u);
   }
 
 }

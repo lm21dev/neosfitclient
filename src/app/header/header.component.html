@@ -5,8 +5,9 @@
       </button>
     <div class="collapse navbar-collapse" [ngbCollapse]="isCollapse">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/apport" >Apport Calorique</a>
-        <a class="nav-item nav-link" routerLink="/suivi">Suivi Calorique</a>
+        <a class="nav-item nav-link" (click)="hide()" routerLink="/apport" >Apport Calorique</a>
+        <a class="nav-item nav-link" (click)="hide()" routerLink="/suivi">Suivi Calorique</a>
+        <a class="nav-item nav-link" (click)="hide()" routerLink="/repas">Ajouter un Repas</a>
       </div>
     </div>
   </nav>

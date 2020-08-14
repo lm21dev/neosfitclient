@@ -16,12 +16,11 @@ export class ApportCaloriqueComponent implements OnInit {
   keys = Object.keys;
   values = Object.values;
   act = ActiviteEnum;
-  
   sexes = TypeSexe;
 
   constructor(
-    private builder: FormBuilder, 
-    private calcul: CalculApportCaloriqueService, 
+    private builder: FormBuilder,
+    private calcul: CalculApportCaloriqueService,
     private syntheseConso: SyntheseConsoService) { }
 
   ngOnInit(): void {

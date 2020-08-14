@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ApportCaloriqueComponent } from './apport-calorique/apport-calorique.component';
@@ -15,8 +15,10 @@ import { ApportCaloriqueResultComponent } from './apport-calorique-result/apport
 import { NumberToSexePipe } from './number-to-sexe.pipe';
 import { StatSuiviCaloriqueComponent } from './stat-suivi-calorique/stat-suivi-calorique.component';
 import { ToasterComponent } from './toaster/toaster.component';
+import { RepasComponent } from './repas/repas.component';
+
 import { SyntheseConsoService } from './shared/services/synthese-conso.service';
-import { HttpClientModule } from '@angular/common/http';
+import { RepasService } from './shared/services/repas.service';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     ApportCaloriqueResultComponent,
     NumberToSexePipe,
     StatSuiviCaloriqueComponent,
-    ToasterComponent
+    ToasterComponent,
+    RepasComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     ChartsModule,
     HttpClientModule
   ],
-  providers: [SyntheseConsoService],
+  providers: [SyntheseConsoService, RepasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

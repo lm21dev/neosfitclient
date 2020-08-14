@@ -1,7 +1,7 @@
 export enum ActiviteEnum
 {
-    Sedentaire = 1,
-    Actif,
-    Sportif,
-    NeosSportif
+    Sedentaire = 'Sedentaire',
+    Actif = 'Actif',
+    Sportif = 'Sportif',
+    NeosSportif = 'NeosSportif'
 }

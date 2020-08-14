@@ -17,6 +17,7 @@ export class ApportCaloriqueComponent implements OnInit {
   keys = Object.keys;
   values = Object.values;
   act = ActiviteEnum;
+
   sexes = TypeSexe;
 
   get activite(): AbstractControl{return this.apportKcalForm.get('activite'); }

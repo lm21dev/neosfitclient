@@ -1,4 +1,4 @@
 export enum TypeSexe {
-    homme = 1,
-    femme = 2
+    homme = 'homme',
+    femme = 'femme'
 }

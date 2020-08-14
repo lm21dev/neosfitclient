@@ -1,5 +1,5 @@
 export interface Conso {
-    kcal: number;
+  kcal: number;
   proteine: number;
   lipides: number;
   glucides: number;

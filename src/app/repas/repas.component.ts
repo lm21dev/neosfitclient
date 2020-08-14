@@ -1,27 +1,45 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
-import { AlimentService } from '../shared/services/aliment.service';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { TypeRepas } from '../shared/enums/type-repas.enum'
+import { RepasService } from '../shared/services/repas.service';
+
 
 @Component({
   selector: 'app-repas',
   templateUrl: './repas.component.html',
-  styleUrls: ['./repas.component.css'],
-  providers: [AlimentService]
+  styleUrls: ['./repas.component.css']
 })
 export class RepasComponent implements OnInit {
 
-  @Output() _clickAdd = new EventEmitter();
-  rechercher: string ='';
-  constructor() { }
+  typeRepas = TypeRepas;
+  repasForm: FormGroup;
+  keys = Object.keys;
+  values = Object.values;
+
+  constructor( 
+    private builder: FormBuilder,
+    private serviceRepas: RepasService) { }
 
   ngOnInit(): void {
+    this.repasForm = this.builder.group(
+      {
+        date: new FormControl( '', [Validators.required]),
+        typeRepas: ''
+      }
+    );
   }
-  filtrage(event: any): void{
-    this.rechercher = event.value;
+
+  onSubmit(): void {
+
+    this.serviceRepas.AddRepas(this.repasForm.value)
+    .subscribe(
+      next => console.log(next),
+      err => console.error(err));
   }
-  
-  clickAdd(event: any): void{
-    console.log('aliment container', event);
-    this._clickAdd.emit(event);
+
+
+  refresh(): void {
+    this.repasForm.reset();
   }
 
 }

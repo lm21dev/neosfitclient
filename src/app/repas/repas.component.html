@@ -1,2 +1,17 @@
-<app-aliment-recherche (recherche)='filtrage($event)'></app-aliment-recherche>
-<app-aliment-selector [filtre]='rechercher' (clickAdd)=clickAdd($event)></app-aliment-selector>
+<label>Ajouter votre repas</label>
+<form [formGroup]="repasForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Date</label>
+        <input class="form-control" type="date" formControlName="date"/>
+    </div>
+    <div class="form-group">
+        <label>Type de Repas</label>
+        <select class="form-control" formControlName="typeRepas">
+            <option *ngFor="let repas of values(typeRepas)" [ngValue]="repas">{{repas}}</option>
+        </select>
+    </div>
+<div class="form-group">
+    <button  class="btn btn-outline-secondary " type="submit">valider</button>
+    <button class="btn btn-outline-secondary " type="button" (click)="refresh()">Refresh</button>
+</div>
+</form>

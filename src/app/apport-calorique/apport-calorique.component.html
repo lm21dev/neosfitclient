@@ -30,8 +30,8 @@
         <p *ngIf="taille.invalid" class="red-class"> {{getErrors(taille)}}</p>
     </div>
     <div class="form-group">
-        <button class="btn btn-primary col-6" type="submit" [disabled]='apportKcalForm.invalid'>Mon apport</button>
-        <button class="btn  col-6" type="button" (click)="refresh()">Refresh</button>
+        <button class="btn btn-success col-6" type="submit" [disabled]='apportKcalForm.invalid'>Valider</button>
+        <button class="btn btn-primary col-6" type="button" (click)="refresh()">Refresh</button>
     </div>
 </form>
 
